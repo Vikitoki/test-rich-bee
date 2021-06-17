@@ -9,7 +9,7 @@ const Header: FC = () => {
           <a className="header__logo">Richbee Shows</a>
         </Link>
         <div className="header__form">
-          <div className="form">
+          <form action="#" className="form">
             <div className="form__items">
               <div className="form__item form__item_search">
                 <input
@@ -21,7 +21,7 @@ const Header: FC = () => {
                 ></input>
               </div>
             </div>
-          </div>
+          </form>
         </div>
       </div>
     </header>

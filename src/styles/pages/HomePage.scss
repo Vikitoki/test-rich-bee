@@ -1,0 +1,50 @@
+.home-page {
+  display: flex;
+  flex: 1 1 100%;
+  min-height: 100vh;
+
+  background: url(../../../public/home/background.jpg) center no-repeat;
+  background-size: cover;
+
+  &__container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  &__content {
+    display: block;
+    width: 100%;
+    max-width: 730px;
+    margin: 0 auto;
+
+    text-align: center;
+  }
+
+  &__title {
+    display: block;
+    margin-bottom: 40px;
+
+    font-size: 64px;
+    font-weight: 900;
+    color: #fefefe;
+    line-height: 78px;
+  }
+
+  &__sub-title {
+    display: block;
+    margin-bottom: 80px;
+
+    font-size: 36px;
+    font-weight: 500;
+    color: #fefefe;
+    line-height: 52px;
+  }
+
+  &__form {
+    display: block;
+    width: 100%;
+    max-width: 555px;
+    margin: 0 auto;
+  }
+}
