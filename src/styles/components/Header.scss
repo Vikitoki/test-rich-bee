@@ -1,0 +1,39 @@
+@import "../default/variables.scss";
+
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+
+  background-color: #111111;
+
+  width: 100%;
+  padding: 25px 0;
+
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__logo {
+    display: block;
+
+    font-size: 24px;
+    font-weight: 300;
+    color: #fefefe;
+    line-height: 30px;
+
+    @media (min-width: $md2 + px) {
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__form {
+    display: block;
+    flex: 0 1 420px;
+  }
+}

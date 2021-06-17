@@ -1,0 +1,49 @@
+@import "./variables.scss";
+
+// <ПОДКЛЮЧЕНИЕ ШРИФТОВ>
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&display=swap");
+// </ПОДКЛЮЧЕНИЕ ШРИФТОВ>
+
+//<ШРИФТ ПО УМОЛЧАНИЮ>
+$fontFamily: "Montserrat";
+//</ШРИФТ ПО УМОЛЧАНИЮ>
+
+//<ПОДКЛЮЧЕНИЕ ОБЯЗАТЕЛЬНЫХ SCSS КОМПОНЕНТОВ>
+@import "./null.scss";
+//</ПОДКЛЮЧЕНИЕ ОБЯЗАТЕЛЬНЫХ SCSS КОМПОНЕНТОВ>
+
+//<ОБОЛОЧКА>
+.wrapper {
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  &.loaded {
+  }
+}
+//</ОБОЛОЧКА>
+
+//<ОСНОВНАЯ СЕТКА>
+.container {
+  max-width: $maxWidthContainer + px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 15px;
+}
+
+.main {
+  display: block;
+  flex: 1 1 100%;
+  min-height: 100%;
+}
+//</ОСНОВНАЯ СЕТКА>
+
+// <ДОПОЛНИТЕЛЬНЫЕ СТИЛИ СТРАНИЦ И КОМПОНЕНТОВ>
+@import '../components/index.scss';
+@import '../common/index.scss';
+
+//</ДОПОЛНИТЕЛЬНЫЕ СТИЛИ СТРАНИЦ И КОМПОНЕНТОВ>
