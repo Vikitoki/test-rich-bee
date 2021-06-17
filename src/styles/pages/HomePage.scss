@@ -6,6 +6,10 @@
   background: url(../../../public/home/background.jpg) center no-repeat;
   background-size: cover;
 
+  &__main {
+    margin-bottom: 50px;
+  }
+
   &__container {
     width: 100%;
     display: flex;

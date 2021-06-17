@@ -5,9 +5,11 @@ const Header: FC = () => {
   return (
     <header className="header">
       <div className="header__container container">
-        <Link href="/">
-          <a className="header__logo">Richbee Shows</a>
-        </Link>
+        <nav className="header__nav">
+          <Link href="/">
+            <a className="header__logo">Richbee Shows</a>
+          </Link>
+        </nav>
         <div className="header__form">
           <form action="#" className="form">
             <div className="form__items">
