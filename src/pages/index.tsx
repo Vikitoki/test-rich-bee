@@ -1,6 +1,10 @@
-import React from "react";
+import { GetStaticProps } from "next";
+import React, { FC } from "react";
+import { getMoviesList } from "../services/moviesActions";
+import { wrapper } from "../store/store";
+import { NextThunkDispatch } from "../types/redux";
 
-const Home = () => {
+const Home: FC = () => {
   return (
     <section className="home-page">
       <div className="home-page__container container">
@@ -20,7 +24,6 @@ const Home = () => {
                     name="homeSearch"
                     id="homeSearch"
                     className="form__input form__input_home"
-                    className="form__input form__input_home"
                     placeholder="Type here smth..."
                   ></input>
                 </div>
@@ -37,5 +40,16 @@ const Home = () => {
     </section>
   );
 };
+
+// export const getStaticProps: GetStaticProps = wrapper.getStaticProps(
+//   (store) => async () => {
+//     const dispatch = store.dispatch as NextThunkDispatch;
+//     await dispatch(await getMoviesList());
+
+//     return {
+//       props: {},
+//     };
+//   }
+// );
 
 export default Home;
