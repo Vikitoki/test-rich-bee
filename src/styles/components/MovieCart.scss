@@ -1,0 +1,132 @@
+@import "../default/variables.scss";
+
+.movie-cart {
+  display: block;
+  width: 100%;
+  padding: 15px;
+
+  background: rgba(17, 17, 17, 0.8);
+  border-radius: 10px;
+  display: flex;
+
+  &__left-part {
+    flex: 0 0 95px;
+  }
+
+  &__img {
+    display: block;
+    width: 100%;
+    height: 140px;
+
+    border-radius: 8px;
+
+    overflow: hidden;
+    transition: all 0.3s ease;
+
+    img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    @media (min-width: $md2 + px) {
+      &:hover {
+        position: relative;
+        transform: scale(1.3);
+      }
+    }
+  }
+
+  &__right-part {
+    flex: 1 1 auto;
+  }
+
+  &__content {
+  }
+}
+
+.content-movie-cart {
+  padding-left: 20px;
+
+  &__top {
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__title {
+    display: block;
+    margin-right: 25px;
+
+    font-size: 24px;
+    font-weight: 700;
+    color: #fefefe;
+    line-height: 30px;
+		text-align: left;
+
+    @media (min-width: $md2 + px) {
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__description {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+
+    > li {
+      display: flex;
+      align-items: center;
+      margin-right: 10px;
+
+      font-size: 14px;
+      font-weight: 400;
+      color: #fbfbfb;
+      line-height: 17px;
+
+      &::after {
+        content: "";
+
+        display: block;
+        margin-left: 10px;
+        width: 1px;
+        min-height: 16px;
+
+        background-color: #fefefe;
+      }
+
+      &:last-child {
+        margin-right: 0px;
+
+        &::after {
+          display: none;
+        }
+      }
+    }
+  }
+
+  &__text {
+    padding-top: 15px;
+    display: block;
+    width: 100%;
+    max-width: 300px;
+
+    text-align: left;
+    font-size: 14px;
+    font-weight: 400;
+    color: #fbfbfb;
+    line-height: 21px;
+
+    p {
+      margin-bottom: 12px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

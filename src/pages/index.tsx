@@ -1,14 +1,16 @@
-import { GetStaticProps } from "next";
 import React, { FC, FormEvent, useState } from "react";
 import { getMoviesList } from "../services/moviesActions";
-import { wrapper } from "../store/store";
-import { NextThunkDispatch } from "../types/redux";
 import { ChangeEvent } from "react";
 import { useDispatch } from "react-redux";
+import { MovieCart } from "../components/MovieCart/MovieCart";
+import { useTypedSelector } from "../hooks/useTypedSelector";
 
 const Home: FC = () => {
   const [seachInputValue, setSeachInputValue] = useState<string>("");
   const dispatch = useDispatch();
+  const { loading, error, movieList } = useTypedSelector(
+    (state) => state.movieList
+  );
 
   const seacrhInputHandler = (event: ChangeEvent<HTMLInputElement>) => {
     setSeachInputValue(event.target.value);
@@ -18,7 +20,8 @@ const Home: FC = () => {
     event.preventDefault();
 
     if (seachInputValue.trim() !== "") {
-      dispatch(getMoviesList);
+      dispatch(getMoviesList(seachInputValue));
+      setSeachInputValue("");
     }
   };
 
@@ -60,9 +63,23 @@ const Home: FC = () => {
               </form>
             </div>
           </div>
-					<div className="home-page__items">
-						
-					</div>
+          <div className="home-page__items">
+            {loading ? (
+              <span className="status-text">Loading...</span>
+            ) : error ? (
+              <span className="status-text">{error}</span>
+            ) : movieList.length !== 0 ? (
+              <ul className="home-page__list">
+                {movieList.map((movie) => {
+                  return (
+                    <li key={movie.id}>
+                      <MovieCart movieInfo={movie} />
+                    </li>
+                  );
+                })}
+              </ul>
+            ) : null}
+          </div>
         </div>
       </div>
     </section>

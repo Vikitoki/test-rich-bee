@@ -1,0 +1,17 @@
+.label {
+  display: block;
+  min-width: 90px;
+  padding: 7px 12px;
+
+  border-radius: 8px;
+
+  font-size: 14px;
+  font-weight: 900;
+  line-height: 16px;
+
+  &_yellow {
+    background-color: #fac539;
+
+    color: #000000;
+  }
+}

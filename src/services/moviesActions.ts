@@ -4,15 +4,15 @@ import {
   fetchCurrentMovieRequest,
   fetchCurrentMovieSuccess,
 } from "../store/movies/movieList/action-creators";
-import { IMovieItem, MovieListActions } from "../types/movies";
+import { MovieListActions } from "../types/movies";
 
-export const getMoviesList = () => {
+export const getMoviesList = (name: string) => {
   return async (dispatch: Dispatch<MovieListActions>) => {
     try {
       dispatch(fetchCurrentMovieRequest());
 
       const response = await fetch(
-        "https://imdb8.p.rapidapi.com/auto-complete?q=inception",
+        `https://imdb8.p.rapidapi.com/auto-complete?q=${name}`,
         {
           method: "GET",
           headers: {
@@ -27,8 +27,8 @@ export const getMoviesList = () => {
         throw new Error("Sorry we couldn`t load movies,pls try later :(");
       }
 
-      const data: IMovieItem[] = await response.json();
-      dispatch(fetchCurrentMovieSuccess(data));
+      const data = await response.json();
+      dispatch(fetchCurrentMovieSuccess(data.d));
     } catch (error) {
       dispatch(fetchCurrentMovieFailure(error.message));
     }

@@ -10,9 +10,7 @@ import {
 
 export interface IMovieItem {
   id: string;
-  title: string;
-  genres: string;
-  [key: string]: string;
+  [key: string]: any;
 }
 
 export interface MovieListState {

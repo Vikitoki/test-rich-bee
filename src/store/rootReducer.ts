@@ -19,4 +19,4 @@ const rootReducer = (state, action) => {
   }
 };
 
-export { rootReducer };
+export { rootReducer, commonReducer };
