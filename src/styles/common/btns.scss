@@ -34,4 +34,28 @@
       background-color: #296297;
     }
   }
+
+  &_white-outline {
+    padding: 20px 60px;
+
+    font-size: 18px;
+    font-weight: 700;
+    color: #fbfbfb;
+    line-height: 24px;
+
+    border: 2px solid #fbfbfb;
+    border-radius: 40px;
+
+    @media (min-width: $md2 + px) {
+      &:hover {
+        background-color: #fff;
+
+        color: #000;
+      }
+    }
+
+    &:active {
+      background-color: rgb(200, 200, 200);
+    }
+  }
 }

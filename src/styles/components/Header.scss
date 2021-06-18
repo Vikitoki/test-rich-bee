@@ -1,13 +1,9 @@
 @import "../default/variables.scss";
 
 .header {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-
   background-color: #111111;
 
+  display: block;
   width: 100%;
   padding: 25px 0;
 

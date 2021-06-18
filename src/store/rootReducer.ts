@@ -1,9 +1,11 @@
 import { HYDRATE } from "next-redux-wrapper";
 import { combineReducers } from "redux";
+import { movieCurrentReducer } from "./movies/movieCurrent/reducer";
 import { movieListReducer } from "./movies/movieList/reducer";
 
 const commonReducer = combineReducers({
   movieList: movieListReducer,
+  movieCurrent: movieCurrentReducer,
 });
 
 const rootReducer = (state, action) => {

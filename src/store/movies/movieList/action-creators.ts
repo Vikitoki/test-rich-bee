@@ -5,22 +5,22 @@ import {
   FETCH_MOVIE_LIST_SUCCESS,
 } from "./action-variables";
 
-const fetchCurrentMovieFailure = (message: string): MovieListActions => ({
+const fetchMovieListFailure = (message: string): MovieListActions => ({
   type: FETCH_MOVIE_LIST_FAILURE,
   payload: message,
 });
 
-const fetchCurrentMovieSuccess = (data: IMovieItem[]): MovieListActions => ({
+const fetchMovieListSuccess = (data: IMovieItem[]): MovieListActions => ({
   type: FETCH_MOVIE_LIST_SUCCESS,
   payload: data,
 });
 
-const fetchCurrentMovieRequest = (): MovieListActions => ({
+const fetchMovieListRequest = (): MovieListActions => ({
   type: FETCH_MOVIE_LIST_REQUEST,
 });
 
 export {
-  fetchCurrentMovieFailure,
-  fetchCurrentMovieSuccess,
-  fetchCurrentMovieRequest,
+  fetchMovieListFailure,
+  fetchMovieListSuccess,
+  fetchMovieListRequest,
 };
