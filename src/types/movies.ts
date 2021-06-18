@@ -7,6 +7,10 @@ import {
   FETCH_MOVIE_LIST_REQUEST,
   FETCH_MOVIE_LIST_SUCCESS,
 } from "../store/movies/movieList/action-variables";
+import {
+  FETCH_MORE_MOVIES_LIKE_ONE_FAILURE,
+  FETCH_MORE_MOVIES_LIKE_ONE_SUCCESS,
+} from "../store/movies/movieMoreLikeOne/action-variables";
 
 export interface IMovieItem {
   id: string;
@@ -21,6 +25,11 @@ export interface MovieListState {
 
 export interface MovieCurrentState {
   currentMovie: IMovieItem;
+  error: string;
+}
+
+export interface MovieMoreLikeOneState {
+  moviesMoreList: IMovieItem[];
   error: string;
 }
 
@@ -52,6 +61,18 @@ interface FetchCurrentMovieSuccessAction {
   payload: IMovieItem;
 }
 
+// Movies more like one action
+
+interface FetchMoreMoviesLikeOneSuccessAction {
+  type: typeof FETCH_MORE_MOVIES_LIKE_ONE_SUCCESS;
+  payload: IMovieItem[];
+}
+
+interface FetchMoreMoviesLikeOneFailureAction {
+  type: typeof FETCH_MORE_MOVIES_LIKE_ONE_FAILURE;
+  payload: string;
+}
+
 export type MovieListActions =
   | FetchMovieListRequestAction
   | FetchMovieListRequestFailure
@@ -60,3 +81,7 @@ export type MovieListActions =
 export type MovieCurrentActions =
   | FetchCurrentMovieFailureAction
   | FetchCurrentMovieSuccessAction;
+
+export type MovieMoreLikeOneActions =
+  | FetchMoreMoviesLikeOneSuccessAction
+  | FetchMoreMoviesLikeOneFailureAction;
