@@ -7,6 +7,7 @@ import { wrapper } from "../../store/store";
 import { NextThunkDispatch } from "../../types/redux";
 import Image from "next/image";
 import { MovieBlock } from "../../components/MovieBlock/MovieBlock";
+import Link from "next/link";
 
 const CurrentMoviePage: FC = () => {
   const { currentMovie, error } = useTypedSelector(
@@ -40,9 +41,9 @@ const CurrentMoviePage: FC = () => {
                 </ul>
               </div>
               <div className="intro-current-page__btn">
-                <a href="/" target="_blank" className="btn btn_white-outline">
-                  Watch
-                </a>
+                <Link href="/">
+                  <a className="btn btn_white-outline"> Watch</a>
+                </Link>
               </div>
               <div className="intro-current-page__text">
                 <p>
