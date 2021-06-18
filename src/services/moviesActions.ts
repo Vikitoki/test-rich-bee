@@ -16,7 +16,7 @@ export const getMoviesList = (name: string) => {
       dispatch(fetchMovieListRequest());
 
       const response = await fetch(
-        `https://imdb8.p.rapidapi.com/auto-complete?q=${name}`,
+        `https://imdb8.p.rapidapi.com/title/find?q=${name}`,
         {
           method: "GET",
           headers: {
@@ -32,7 +32,7 @@ export const getMoviesList = (name: string) => {
       }
 
       const data = await response.json();
-      dispatch(fetchMovieListSuccess(data.d));
+      dispatch(fetchMovieListSuccess(data.results));
     } catch (error) {
       dispatch(fetchMovieListFailure(error.message));
     }
@@ -42,8 +42,9 @@ export const getMoviesList = (name: string) => {
 export const getCurrentMovie = (id: string) => {
   return async (dispatch: Dispatch<MovieCurrentActions>) => {
     try {
+			console.log('hrerere')
       const response = await fetch(
-        `https://imdb8.p.rapidapi.com/auto-complete?q=${id}`,
+        `https://imdb8.p.rapidapi.com/title/find?q=${id}`,
         {
           method: "GET",
           headers: {
@@ -59,7 +60,7 @@ export const getCurrentMovie = (id: string) => {
       }
 
       const data = await response.json();
-      dispatch(fetchCurrentMovieSuccess(data.d["0"]));
+      // dispatch(fetchCurrentMovieSuccess(data));
     } catch (error) {
       dispatch(fetchCurrentMovieFailure(error.message));
     }
