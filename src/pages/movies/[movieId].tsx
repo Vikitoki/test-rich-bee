@@ -2,7 +2,7 @@ import { GetServerSideProps } from "next";
 import React, { FC } from "react";
 import { useTypedSelector } from "../../hooks/useTypedSelector";
 import { MainLayout } from "../../layouts/MainLayout/MainLayout";
-import { getCurrentMovie } from "../../services/moviesActions";
+import { getCurrentMovie, getMoreLikeThis } from "../../services/moviesActions";
 import { wrapper } from "../../store/store";
 import { NextThunkDispatch } from "../../types/redux";
 
@@ -50,6 +50,13 @@ const CurrentMoviePage: FC = () => {
             </div>
           ) : null}
         </div>
+				<div className="current-movie-page__more">
+					<ul className="current-movie-page__list">
+						<li>
+							
+						</li>
+					</ul>
+				</div>
       </div>
     </MainLayout>
   );
@@ -59,6 +66,7 @@ export const getServerSideProps: GetServerSideProps =
   wrapper.getServerSideProps((store) => async ({ params }) => {
     const dispatch = store.dispatch as NextThunkDispatch;
     await dispatch(await getCurrentMovie(String(params.movieId)));
+    await dispatch(await getMoreLikeThis(String(params.movieId)));
     return {
       props: {},
     };
