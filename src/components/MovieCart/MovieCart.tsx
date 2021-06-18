@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 import Link from "next/link";
 import { IMovieItem } from "../../types/movies";
+import Image from "next/image";
 
 interface MovieCartProps {
   movieInfo: IMovieItem;
@@ -16,9 +17,14 @@ const MovieCart: FC<MovieCartProps> = ({ movieInfo }) => {
         <Link href={`movies/${modifiedId}`}>
           <a className="movie-cart__img">
             {image?.url ? (
-              <img src={image.url} alt="" />
+              <Image src={image.url} alt="" height={140} width={140} />
             ) : (
-              <img src="https://via.placeholder.com/150"></img>
+              <Image
+                alt=""
+                src={"https://via.placeholder.com/150"}
+                height={140}
+                width={140}
+              />
             )}
           </a>
         </Link>

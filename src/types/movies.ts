@@ -30,7 +30,7 @@ export interface MovieCurrentState {
 
 export interface MovieMoreLikeOneState {
   moviesMoreList: IMovieItem[];
-  error: string;
+  errorMore: string;
 }
 
 // Movies list action

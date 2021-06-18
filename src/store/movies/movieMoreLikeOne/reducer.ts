@@ -8,7 +8,7 @@ import {
 } from "./action-variables";
 
 const initialState: MovieMoreLikeOneState = {
-  error: "",
+  errorMore: "",
   moviesMoreList: [],
 };
 
@@ -20,13 +20,13 @@ export const movieMoreLikeOneReducer = (
     case FETCH_MORE_MOVIES_LIKE_ONE_SUCCESS:
       return {
         ...state,
-        error: "",
+        errorMore: "",
         moviesMoreList: action.payload,
       };
     case FETCH_MORE_MOVIES_LIKE_ONE_FAILURE:
       return {
         ...state,
-        error: action.payload,
+        errorMore: action.payload,
       };
     default:
       return state;

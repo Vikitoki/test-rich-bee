@@ -5,10 +5,15 @@ import { MainLayout } from "../../layouts/MainLayout/MainLayout";
 import { getCurrentMovie, getMoreLikeThis } from "../../services/moviesActions";
 import { wrapper } from "../../store/store";
 import { NextThunkDispatch } from "../../types/redux";
+import Image from "next/image";
+import { MovieBlock } from "../../components/MovieBlock/MovieBlock";
 
 const CurrentMoviePage: FC = () => {
   const { currentMovie, error } = useTypedSelector(
     (state) => state.movieCurrent
+  );
+  const { errorMore, moviesMoreList } = useTypedSelector(
+    (state) => state.movieMoreLikeOne
   );
   const { title, image, runningTimeInMinutes, year, titleType } = currentMovie;
 
@@ -17,7 +22,7 @@ const CurrentMoviePage: FC = () => {
       <div className="current-movie-page">
         <div className="current-movie-page__intro intro-current-page">
           <div className="intro-current-page__img">
-            {image?.url ? <img src={image?.url} alt="" /> : null}
+            {image?.url ? <Image layout="fill" src={image.url} alt="" /> : null}
           </div>
           {error ? (
             <span className="status-text status-text_big">{error}</span>
@@ -50,13 +55,22 @@ const CurrentMoviePage: FC = () => {
             </div>
           ) : null}
         </div>
-				<div className="current-movie-page__more">
-					<ul className="current-movie-page__list">
-						<li>
-							
-						</li>
-					</ul>
-				</div>
+        <div className="current-movie-page__more container">
+          <h4 className="current-movie-page__title">You may also like</h4>
+          <ul className="current-movie-page__list">
+            {errorMore ? (
+              <span className="status-text status-text_big">{error}</span>
+            ) : moviesMoreList.length !== 0 ? (
+              moviesMoreList.map((item) => {
+                return (
+                  <li key={item.id}>
+                    <MovieBlock movieInfo={item} />
+                  </li>
+                );
+              })
+            ) : null}
+          </ul>
+        </div>
       </div>
     </MainLayout>
   );
